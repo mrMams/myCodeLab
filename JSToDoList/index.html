@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ToDoList App - Simple way to get organised!</title>
+	</head>
+
+	<body>
+		<script src="./todolist.js"></script>
+		<script type="text/javascript">
+			var myList = new ToDoList();
+		</script>
+		<h1>TODO List App</h1>
+		<div id="todoListView">
+			<h2>My ToDo List</h2>
+			<ul id="todoListItems">
+			</ul>	
+		</div>
+		<div id="taskCreation">
+			<h2>Add a new task</h2>
+			<form name="addItemForm">
+				<label>Name:</label>
+				<input type="text" name="newTaskName"/>
+				<input type="submit" name="addTaskButton" value="To Do!"/>
+			</form>
+		</div>
+	</body>
+</html>
