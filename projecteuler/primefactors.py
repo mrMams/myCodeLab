@@ -14,24 +14,19 @@ tant que candidats non vide
 retourner le plus grand element de primes
 '''
 
-def largestPrimeFactor(n):
-	# Considering factors only
-	# TODO: find a better way to generate candidates
-	candidats = [x for x in xrange(2, n/2) if n % x == 0]
-	print "Factors: ", candidats
-	if not candidats:
-		return n
-	prime = candidats[0]
-	while len(candidats) > 1 :
-		candidats = [ x for x in candidats if x % prime != 0 ]
-		print candidats
-		if candidats:
-			prime = candidats[0]
+# Returns the smallest factor of a number (is always prime !)
+def smallestFactor(n):
+	i = 2
+	while n % i != 0 :
+		i += 1
+	return i
 
-	return prime
+# Recursive version
+def largestPrimeFactorRecursive(n):
+	firstPrimeFactor = smallestFactor(n)
+	return n if n == firstPrimeFactor else largestPrimeFactorRecursive(n/firstPrimeFactor)
 
 # Main
 number = int(sys.argv[1])
-print "Largest prime factor of %d: " % (number)
-print largestPrimeFactor(number)
+print "Largest prime factor of %d: %d" % (number, largestPrimeFactorRecursive(number))
 
